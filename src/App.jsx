@@ -8,7 +8,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const App = () => {
-  const API = "http://localhost:3000/api/ben";
+  const API = "https://ben10-api-six.vercel.app/api/ben";
   const [posts, setPosts] = useState([]);// stores list of api
   const [characterName, setCharacterName] = useState("");// Mongodb key to store name
   const [characterDescription, setCharacterDescription] = useState("");// Mongodb key to store description
@@ -32,7 +32,7 @@ const handleUpload = async (e) => {
     formData.append("characterName", characterName); // Append character name
     formData.append("characterDescription", characterDescription); // Append character description
     // Axios POST request
-    const result = await axios.post("http://localhost:3000/api/ben", formData, {
+    const result = await axios.post("https://ben10-api-six.vercel.app/api/ben", formData, {
       headers: { "Content-Type": "multipart/form-data" },
     });
     console.log("Upload result:", result);
@@ -51,7 +51,7 @@ const handleUpload = async (e) => {
 // get-fetch
 const fetchImages = () => {
   axios
-    .get("http://localhost:3000/api/ben")
+    .get("https://ben10-api-six.vercel.app/api/ben")
     .then((response) => {
       setImages(response.data.data); // Assuming the response is an array of objects
     })
@@ -65,7 +65,7 @@ const fetchImages = () => {
   }, []);
   const getPost = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/ben");
+      const res = await axios.get("https://ben10-api-six.vercel.app/api/ben");
       // Extract the characters array from the response
       setPosts(res.data.characters);
       console.log("Fetched characters:", res.data.characters);
