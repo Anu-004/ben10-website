@@ -7,6 +7,14 @@ export default defineConfig({
     include: ['@fortawesome/fontawesome-svg-core', '@fortawesome/free-solid-svg-icons'],
   },
   plugins: [react()],
+  server: {
+    proxy: {
+      "/api": {
+        target: "https://ben10-api-six.vercel.app",
+        changeOrigin: true,
+      },
+    },
+  },
 })
 
 
